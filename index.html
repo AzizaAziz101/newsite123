@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de" class="bg-black text-white font-sans font-bold">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entdecke Deine Stärken</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Flip Card Styles */
+      .flip-container {
+        perspective: 1000px;
+      }
+      .flip-box {
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        width: 100%;
+        /* Höhe wird über Tailwind Klassen gesetzt */
+      }
+      .flip-box-front, .flip-box-back {
+        backface-visibility: hidden;
+        border-radius: 0.625rem; /* 10px */
+        border: 1px solid rgba(192,192,192,0.9);
+        box-shadow: 0 0 20px rgba(0,255,255,0.8);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem; /* 16px */
+      }
+      .flip-box-front {
+        background-color: #006666;
+        color: black;
+      }
+      .flip-box-back {
+        background-color: #006666;
+        color: black;
+        transform: rotateY(180deg);
+        flex-direction: column;
+        text-align: left;
+        overflow: auto;
+      }
+      .flip-container.clicked .flip-box {
+        transform: rotateY(180deg);
+      }
+    </style>
+</head>
+<body class="p-5">
+
+    <h1 class="text-purple-700 text-4xl mb-6">Entdecke deine Stärken</h1>
+
+    <p class="mb-5 text-white/90 leading-relaxed">Um unsere individuellen Stärken zu entfalten, müssen wir sie zunächst entschlüsseln.</p>
+
+    <p class="mb-8 text-white/90 leading-relaxed">
+        Selbstreflexion ist ein entscheidender Teil der Selbstentfaltung und hilft dir, deine innersten Wünsche zu erkennen und ihnen näher zu kommen. Hier sind einige Schritte und Fragen, die dich auf diesem Weg unterstützen können:
+    </p>
+
+    <h2 class="text-white text-2xl mb-4">Stelle dir Fragen wie:</h2>
+
+    <ul class="list-square list-inside ml-5 mb-8 space-y-3">
+        <li>Wenn in deiner Vorstellung dir alle Möglichkeiten offen stünden und du sein könntest, wer immer du sein möchtest – welche großartigen Träume und ehrgeizigen Ziele würdest du dann verfolgen?</li>
+        <li>Was macht mich wirklich glücklich und erfüllt mich? Beispiel: Meinen Träumen entschlossen nachzujagen und die Möglichkeiten zu ergreifen, um diese zu erreichen, erfüllt mich sehr.</li>
+        <li>Welche Aktivitäten und Interessen bringen mir Freude?</li>
+        <li>Wovon träume ich, wenn ich an die Zukunft denke?</li>
+    </ul>
+
+    <h2 class="text-white text-2xl mb-6">Entdecke deine Träume</h2>
+
+    <ol class="list-decimal list-inside mb-10 space-y-3 text-white/90">
+         <li>Stell dir vor, es gäbe keine Grenzen und du könntest sein, wer du möchtest. Welche großen Ziele würdest du verfolgen?</li>
+         <li>Was macht dich wirklich glücklich?</li>
+         <li>Welche Träume hast du für deine Zukunft?</li>
+    </ol>
+
+<!-- Flip Box Container -->
+<div class="flip-container mx-auto mb-10 w-[90%] md:w-3/5" id="flipBox">
+    <div class="flip-box h-[500px] md:h-[400px]">
+        <!-- Vorderseite -->
+        <div class="flip-box-front rounded-lg">
+            <h2 class="text-black text-3xl">Entdecke deine Träume</h2>
+        </div>
+        <!-- Rückseite -->
+        <div class="flip-box-back rounded-lg">
+            <h2 class="text-purple-700 text-2xl mt-28 mb-4 text-center">Deine Aufgabe:</h2>
+            <p class="mb-3">Nimm dir bunte Karteikarten und einen Permanentmarker.</p>
+            <p class="mb-3">Schreibe in deiner schönsten Handschrift die Antworten auf diese Fragen.</p>
+            <p class="mb-3">Platziere die Karten an einem Ort, den du täglich siehst.</p>
+            <p class="mb-3">
+                Der Nutzen: Diese Karten sind mehr als nur Worte – sie sind ein Spiegel deiner tiefsten Wünsche und Ziele. Jeden Tag erinnern sie dich daran, wer du sein möchtest und wohin du gehen willst. Überarbeite deine Antworten regelmäßig, denn während du wächst und dich entwickelst, verändern sich auch deine Träume.
+            </p>
+            <p>
+                Ergebnis: Du wirst sehen, wie du mit jeder neuen Einsicht näher zu der Person wirst, die du wirklich sein willst.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+    <h2 class="text-white text-2xl mb-6">Beginne jetzt – deine Zukunft wartet auf dich.</h2>
+
+    <hr class="border-t border-white/50 mb-6">
+
+    <p class="mb-6"><a href="#" class="text-turquoise-400 font-bold hover:underline">Hier kostenlos Anmelden</a></p>
+
+    <h2 class="text-white text-2xl mb-4">Woher weiß ich nun, welche meine Stärken sind?</h2>
+
+    <p class="mb-8 leading-relaxed">
+        Indem ich mich selbst frage, worin sie liegen könnten. Indem ich jemanden frage, der mir nahe steht. Indem ich proaktiv nach ihnen suche.
+    </p>
+
+    <h2 class="text-white text-2xl mb-6">Echte Stärken</h2>
+
+    <p class="mb-10 leading-relaxed text-white/90">
+        Eine echte Stärke entsteht nicht von allein. Sie wird durch bewusste Auseinandersetzung und tiefe Selbstreflexion entdeckt. Um ihr volles Potenzial zu entfalten, müssen Stärken gesehen, analysiert und gezielt gefördert werden.
+        <br><br>
+        Wie ein Diamant, der unter der richtigen Menge an Druck in Milliarden von Jahren entsteht und an Stärke und Härte gewinnt, entwickelt sich auch menschliche Stärke durch Herausforderungen.
+        Nur durch den Widerstand, dem wir begegnen, und stetiges Lernen kann sie wachsen und erblühen.
+        <br><br>
+        So wie der Diamant erst durch seine Veredelung zu vollem Glanz kommt, offenbart der Mensch durch ausdauerndes Training und beständige Entwicklung seine wahren Stärken und Fähigkeiten.
+        <br><br>
+        Letztlich sind es die Herausforderungen, die unseren Charakter formen – und dieser Weg ist es, der uns befähigt, unser volles Potenzial zu entfalten und zu strahlen.
+    </p>
+
+    <h2 class="text-white text-2xl mb-4">Worin bin ich gut?</h2>
+
+    <ol class="list-decimal list-inside mb-10 space-y-2">
+        <li>Analysieren</li>
+        <li>Observieren</li>
+        <li>Visualisieren</li>
+        <li>Designen</li>
+    </ol>
+
+    <p class="mb-6"><a href="#" class="text-turquoise-400 font-bold hover:underline">Hier kostenlos Anmelden</a></p>
+
+    <!-- Musik hinzufügen -->
+    <audio id="backgroundMusic">
+        <source src="prism7.mp3" type="audio/mpeg" />
+        Ihr Browser unterstützt das Abspielen von Musik nicht.
+    </audio>
+
+    <!-- Sound für die Flip Box hinzufügen -->
+    <audio id="flipSound">
+        <source src="Sound1.123.wav" type="audio/wav" />
+        Ihr Browser unterstützt das Abspielen von Sound1 nicht.
+    </audio>
+
+    <!-- JavaScript zum Abspielen und Pausieren der Musik und zum Abspielen des Flip-Sounds -->
+    <script>
+        var audio = document.getElementById('backgroundMusic');
+        var flipSound = document.getElementById('flipSound');
+        var isPlaying = false;
+
+        // Startet oder stoppt die Musik nach einem Klick auf das Dokument
+        document.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isPlaying = !isPlaying; // Status umschalten
+        });
+
+        // Flip Box Toggle bei Klick und Flip-Sound abspielen
+        var flipBox = document.getElementById('flipBox');
+        flipBox.addEventListener('click', function(event) {
+            flipBox.classList.toggle('clicked');
+            flipSound.play(); // Flip-Sound abspielen
+            event.stopPropagation(); // Verhindern, dass der Klick die Musik beeinflusst
+        });
+    </script>
+
+</body>
+</html>

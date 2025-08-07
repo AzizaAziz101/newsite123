@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Info mit Expand</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-neutral-900 flex items-center justify-center min-h-screen p-4">
+
+  <div 
+    x-data="{ showInfo: false, showMore: false, showImage: true }"
+    @click.away="showInfo = false; showMore = false"
+    class="w-full max-w-md md:max-w-3xl bg-neutral-900 rounded-lg shadow-lg overflow-hidden"
+  >
+    <!-- Bild -->
+    <template x-if="showImage">
+      <img 
+        src="612.jpg" 
+        alt="Beispielbild" 
+        class="w-full h-48 md:h-64 object-cover cursor-pointer"
+        @mouseenter="showInfo = true"
+      >
+    </template>
+
+    <!-- Info-Text mit Button -->
+    <div 
+      class="overflow-hidden bg-gray-50"
+      :class="showInfo ? 'max-h-40 p-4 transition-all duration-300' : 'max-h-0 p-0'"
+    >
+      <div class="flex justify-between items-center">
+        <p class="text-gray-700 text-sm">
+          Dies ist ein informativer Text. Du kannst hier erste wichtige Infos anzeigen.
+        </p>
+        <button 
+          @click.stop="
+            if(showMore) { 
+              // Sofort alles schließen
+              showMore = false; 
+              showInfo = false; 
+              showImage = false; 
+            } else { 
+              showMore = true; 
+              showInfo = true; 
+              showImage = true; 
+            }
+          "
+          class="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center transition"
+        >
+          <span x-show="!showMore">+</span>
+          <span x-show="showMore">−</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Erweiterter Bereich -->
+    <div 
+      class="overflow-hidden bg-gray-100"
+      :class="showMore ? 'max-h-screen p-4 transition-all duration-300' : 'max-h-0 p-0'"
+    >
+      <div class="md:flex md:gap-4">
+        <div class="flex-1">
+          <p class="text-gray-700 text-sm">
+            Dies ist der erweiterte Informationsbereich.  
+            Hier kannst du mehr Details anzeigen, z. B. Beschreibung, technische Daten oder weiterführende Links.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button zum Bild wieder öffnen -->
+    <div 
+      x-show="!showImage" 
+      class="p-4 text-center"
+    >
+      <button 
+        @click="showImage = true"
+        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+      >
+        Bild wieder anzeigen
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
